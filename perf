@@ -1,0 +1,15 @@
+./ft_ls -R /usr  6.78s user 1.62s system 57% cpu 14.675 total
+./ft_ls -R /usr  6.73s user 3.30s system 28% cpu 35.199 total
+./ft_ls -R /usr  6.99s user 1.93s system 54% cpu 16.390 total
+   ls -G -R /usr  0.61s user 0.38s system 46% cpu 2.149 total
+   ls -G -R /usr  0.61s user 0.58s system 19% cpu 6.114 total
+
+./ft_ls -R /usr  42.77s user 26.18s system 39% cpu 2:54.42 total
+ls -G -1R /usr  0.57s user 0.39s system 53% cpu 1.788 total
+# 1st enhancement
+./ft_ls -R /usr  2.66s user 1.02s system 49% cpu 7.378 total
+ls -G -1R /usr  0.56s user 0.37s system 47% cpu 1.946 total
+# lines
+./ft_ls -R /usr  2.81s user 1.65s system 50% cpu 8.798 total
+
+./ft_ls -R /usr  2.71s user 0.99s system 61% cpu 6.060 total
