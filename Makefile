@@ -4,25 +4,33 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = ft_ls
 
-SRC = main.c ft_ls*.c long_format*.c files*.c utils*.c
+SRC = main.c ft_ls.c ft_ls2.c long_format.c long_format2.c \
+	long_format3.c files.c files2.c utils.c utils2.c utils3.c utils4.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	@make -C libft
-	@make -C libft/ft_printf
-	@$(CC) $(CFLAGS) $(SRC) -Llibft/ft_printf -lftprintf -Llibft -lft -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME): $(OBJ)
+	make -C libft
+	cp libft/libft.a .
+	make -C libft/ft_printf
+	cp libft/ft_printf/libftprintf.a .
+	$(CC) $(CFLAGS) libft.a libftprintf.a $^ -o $@
 
 clean:
 	@make clean -C libft
 	@make clean -C libft/ft_printf
 	@rm -f $(OBJ)
 
-fclean: clean
+fclean:
 	@make fclean -C libft
 	@make fclean -C libft/ft_printf
+	@rm -f $(OBJ)
+	@rm -f libft.a libftprintf.a
 	@rm -f $(NAME)
 
 norm:
